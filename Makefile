@@ -1,5 +1,11 @@
-pycon-links.md : list_pycon_talks.py
+
+.PHONY : output
+
+output: output/pycon-links.html
+	cmd.exe /C start $^
+
+output/pycon-links.md : list_pycon_talks.py
 	python $^ html-data $@
 
-pycon-links.html : pycon-links.md
+output/pycon-links.html : output/pycon-links.md
 	pandoc $^ -o $@ 
