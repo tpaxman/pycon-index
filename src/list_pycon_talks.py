@@ -11,7 +11,8 @@ def main():
 
     df_tables = []
     for x in pl.Path(inputfolder).glob('*.html'):
-        with open(x) as f:
+        print(x)
+        with open(x, encoding='utf-8') as f:
             html = f.read()
             year = int(re.sub(r'.*-(\d+)', r'\1', x.stem))
             soup = bs4.BeautifulSoup(html, features='lxml')
@@ -31,7 +32,12 @@ def main():
             df_tables.append(df)
 
     df = pd.concat(df_tables)
+
+
+
     df.to_csv(outputfile, index=False)
+
+
 
 
 if __name__ == '__main__':
