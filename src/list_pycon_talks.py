@@ -31,16 +31,7 @@ def main():
             df_tables.append(df)
 
     df = pd.concat(df_tables)
-
-    # formatting to markdown style
-    df2 = df.copy()
-    df2['title'] = df2['title'].str.replace('   ', ' - ')
-    df2['formatlist'] = '- [' + df2.title + ']' + '(' + df2.url + ')'
-    df2  = df2.groupby('year')['formatlist'].agg('\n'.join).reset_index()
-    g = '---\ntitle: Pycon YouTube Videos\n---\n\n' + '\n\n\n'.join('## ' + df2.year.astype(str) + '\n\n' + df2.formatlist)
-    pl.Path(outputfile).parent.mkdir(exist_ok=True)  
-    with open(outputfile, 'w') as f:
-        f.write(g)
+    df.to_csv(outputfile, index=False)
 
 
 if __name__ == '__main__':
