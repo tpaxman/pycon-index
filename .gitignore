@@ -13,7 +13,6 @@ data/
 *.xlsx
 *.png
 *.xls
-*.csv
 *.docx
 
 
@@ -298,7 +297,6 @@ vignettes/*.pdf
 /*_files/
 
 # End of https://www.toptal.com/developers/gitignore/api/python,r,pycharm/
-output/
 .idea/
 *.exe
 *.Rproj
