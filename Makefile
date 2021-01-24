@@ -11,5 +11,5 @@ output/pycon-links.md : src/format_pycon_talks.py output/pycon-links.csv
 	python $^ $@ 
 
 output/pycon-links.csv : src/list_pycon_talks.py
-	python $^ html-data $@
+	python $^ input-data $@
 

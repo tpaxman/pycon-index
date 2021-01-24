@@ -4,6 +4,17 @@ import pathlib as pl
 import pandas as pd
 import sys
 
+"""
+TODO:
+Format and parse the names
+
+2011: <talk name> - [Mr. | Dr.] ___
+2012: no names
+2013: (Pycon 2013 )*Keynote - (<name>)
+2014: 
+
+"""
+
 
 def main():
     inputfolder, outputfile = sys.argv[1:]
@@ -39,3 +50,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
